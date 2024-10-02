@@ -1,12 +1,20 @@
 {
   "private": true,
+  "name": "study-nextjs",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start"
+    "start": "next start",
+    "lint": "biome check ./src",
+    "lint:fix": "biome check --write ./src/**/*",
+    "check:types": "tsc --noEmit",
+    "turbo:build": "turbo check-types build",
+    "turbo:dev": "turbo dev",
+    "test:file": "bun run ./src/app/lib/data.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",
+    "@neondatabase/serverless": "0.9.5",
     "@tailwindcss/forms": "^0.5.7",
     "@vercel/postgres": "^0.8.0",
     "autoprefixer": "10.4.19",
@@ -23,12 +31,12 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "turbo": "2.1.2",
+    "@biomejs/biome": "1.9.2",
     "@types/bcrypt": "^5.0.2",
     "@types/node": "20.14.8",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0"
   },
-  "engines": {
-    "node": ">=20.12.0"
-  }
+  "packageManager": "bun@1.1.29"
 }
